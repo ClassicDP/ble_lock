@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BLE Keys</title>
+    <link rel="stylesheet" href="/style.css"> <!-- CSS-стили -->
+    <script>
+        function fetchBleKeys() {
+            // Запрос к серверу для получения списка BLE-ключей
+            fetch('/ble_keys')
+                .then(response => response.json()) // Обработка JSON
+                .then(data => {
+                    const table = document.getElementById('ble-keys-table'); // Ссылка на таблицу
+                    table.innerHTML = ''; // Очищаем таблицу
+
+                    // Добавляем заголовок таблицы
+                    const headerRow = document.createElement('tr');
+                    const nameHeader = document.createElement('th');
+                    const statusHeader = document.createElement('th');
+                    const actionHeader = document.createElement('th');
+
+                    nameHeader.textContent = 'BLE Key';
+                    statusHeader.textContent = 'Status';
+                    actionHeader.textContent = 'Action';
+
+                    headerRow.appendChild(nameHeader);
+                    headerRow.appendChild(statusHeader);
+                    headerRow.appendChild(actionHeader);
+                    table.appendChild(headerRow);
+
+                    // Добавляем строки для каждого BLE-ключа
+                    data.bleKeys.forEach(bleKey => {
+                        const row = document.createElement('tr');
+
+                        // Столбец имени ключа
+                        const nameCell = document.createElement('td');
+                        nameCell.textContent = bleKey.macAddress; // Используем MAC-адрес в качестве имени
+
+                        // Столбец статуса ключа
+                        const statusCell = document.createElement('td');
+                        statusCell.textContent = bleKey.status || 'Unknown'; // Отображение статуса
+
+                        // Столбец для действия (например, кнопка подключения)
+                        const actionCell = document.createElement('td');
+                        const connectButton = document.createElement('button');
+                        connectButton.textContent = 'Connect';
+                        connectButton.onclick = () => {
+                            // Добавьте обработчик действия по подключению
+                            alert('Connecting to ' + bleKey.macAddress);
+                        };
+
+                        actionCell.appendChild(connectButton);
+
+                        // Добавляем ячейки в строку
+                        row.appendChild(nameCell);
+                        row.appendChild(statusCell);
+                        row.appendChild(actionCell);
+
+                        // Добавляем строку в таблицу
+                        table.appendChild(row);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching BLE keys:', error);
+                });
+        }
+
+        // Запускаем функцию периодического обновления каждую секунду
+        setInterval(fetchBleKeys, 1000);
+    </script>
+</head>
+<body>
+    <h1>BLE Keys</h1>
+    <table id="ble-keys-table">
+        <!-- Таблица будет заполнена JavaScript -->
+    </table>
+</body>
+</html>

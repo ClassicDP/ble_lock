@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wi-Fi Connection</title>
+    <link rel="stylesheet" href="/style.css"> <!-- Подключение стилей -->
+    <script src="/connect.js"></script> <!-- Подключение JavaScript для обработки подключения -->
+</head>
+<body>
+    <h1>Enter Wi-Fi Password</h1>
+    
+    <!-- Информация о сети -->
+    <div id="networkInfo">Connecting to: </div> <!-- Показ имени сети -->
+
+    <form id="connectForm">
+        <input type="hidden" id="network" name="network"> <!-- Скрытое поле для имени сети -->
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required> <!-- Поле для пароля с требованием ввода -->
+        <input type="submit" value="Connect"> <!-- Кнопка отправки -->
+    </form>
+
+    <!-- Контейнер для вывода статуса -->
+    <div id="connectionStatus">Waiting for connection...</div>
+
+    <!-- Кнопка "Назад" -->
+    <button onclick="window.history.back();">Back</button> <!-- Позволяет вернуться на предыдущую страницу -->
+</body>
+</html>

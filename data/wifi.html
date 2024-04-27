@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Available Wi-Fi Networks</title>
+    <link rel="stylesheet" href="/style.css"> <!-- Стили CSS -->
+    <script src="/wifi.js"></script> <!-- JavaScript для работы с Wi-Fi -->
+</head>
+<body>
+    <h1>Available Wi-Fi Networks</h1>
+    <button id="refreshButton">Refresh</button> <!-- Кнопка для обновления списка -->
+    
+    <table id="wifiTable"> <!-- Таблица для отображения сетей -->
+        <thead>
+            <tr>
+                <th>SSID</th>
+                <th>RSSI</th>
+                <th>Action</th> <!-- Столбец для кнопок подключения -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Список сетей будет добавлен через JavaScript -->
+        </tbody>
+    </table>
+
+    <!-- Статус подключения -->
+    <div id="connectionStatus"></div> <!-- Контейнер для вывода статуса -->
+</body>
+</html>

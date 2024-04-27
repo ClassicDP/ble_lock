@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secure Lock Setup</title>
+    <link rel="stylesheet" href="/style.css"> <!-- Подключение стилей -->
+</head>
+<body>
+    <h1>ESP32 Setup</h1>
+    <!-- Кнопки для перехода на разные страницы -->
+    <button id="wifiButton">Wi-Fi Setup</button> <!-- Кнопка для Wi-Fi -->
+    <button id="bleButton">BLE Setup</button> <!-- Кнопка для BLE -->
+
+    <script>
+        // Обработчик кликов для перехода на страницы
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('wifiButton').addEventListener('click', () => {
+                window.location.href = '/wifi.html'; // Переход на страницу Wi-Fi
+            });
+
+            document.getElementById('bleButton').addEventListener('click', () => {
+                window.location.href = '/ble.html'; // Переход на страницу BLE
+            });
+        });
+    </script>
+</body>
+</html>
