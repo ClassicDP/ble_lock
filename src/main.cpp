@@ -3,11 +3,11 @@
 #include "HTTPRouter.h"
 #include "ble_lock.h"
 
-// Макросы UUID для различных BLE сервисов и характеристик
-#define LOCK_SERVICE_UUID "0dd15be6-b857-11ee-be56-0242ac120002"
-#define LOCK_STATUS_UUID "0dd1623e-b857-11ee-be56-0242ac120002"
-#define LOCK_CONTROL_UUID "0dd163e8-b857-11ee-be56-0242ac120002"
-#define LOCK_NOTIFICATION_UUID "0dd16524-b857-11ee-be56-0242ac120002"
+#define LOCK_SERVICE_UUID "550e8400-e29b-41d4-a716-446655440000"
+#define LOCK_STATUS_UUID "e7e478d3-8d98-40c8-8f8f-d1c94e441b21"
+#define LOCK_CONTROL_UUID "1b3e8c6a-f7d5-49c9-b2a0-50e5722dbb6f"
+#define LOCK_NOTIFICATION_UUID "3c29d97c-92a1-4a64-bc7c-f58bcaaf9af4"
+
 
 #define AP_SSID "MyESP32AP"
 #define AP_PASSWORD "12345678"
